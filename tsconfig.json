@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    // "target": "ESNext",
+    // "module": "commonjs",
+    "declaration": true,
+    "outDir": "./dist/",
+    "strict": true,
+    // "forceConsistentCasingInFileNames": true,
+
+    "incremental": true,
+    // "useDefineForClassFields": true, // Not enabled by default in `strict` mode unless we bump `target` to ES2022.
+    // "noFallthroughCasesInSwitch": true, // Not enabled by default in `strict` mode.
+    // "noImplicitReturns": true, // Not enabled by default in `strict` mode.
+    // "noImplicitOverride": true, // Not enabled by default in `strict` mode.
+    // "noUnusedLocals": true, // Not enabled by default in `strict` mode.
+    // "noUnusedParameters": true, // Not enabled by default in `strict` mode.
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": false,
+    "importHelpers": true,
+
+    // Language and environment
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+
+    // Skip type checking for node modules
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}
