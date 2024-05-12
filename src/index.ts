@@ -1,16 +1,22 @@
 import { getHref, getIsAndroid, isInBinance } from '@binance/w3w-utils';
 import { getWagmiConnectorV2 } from '@binance/w3w-wagmi-connector-v2';
-import { Wallet, WalletDetailsParams } from '@rainbow-me/rainbowkit';
-import type { BinanceW3WParameters } from '@binance/w3w-wagmi-connector-v2';
+import {
+  RainbowKitWalletConnectParameters,
+  Wallet,
+  WalletDetailsParams,
+} from '@rainbow-me/rainbowkit';
 import { createConnector } from 'wagmi';
 import { CreateConnector } from './rainbowkit.type.js';
 
-export interface BinanceW3WOptions {
+interface BinanceW3WOptions {
   projectId: string;
-  walletConnectParameters?: BinanceW3WParameters;
+  walletConnectParameters?: RainbowKitWalletConnectParameters;
 }
 
-export const binanceWallet = ({ projectId, walletConnectParameters, }: BinanceW3WOptions): Wallet => {
+export const binanceWallet = ({
+  projectId,
+  walletConnectParameters,
+}: BinanceW3WOptions): Wallet => {
   const shouldUseWalletConnect = !isInBinance();
   const getUriMobile = async (uri: string) => {
     const isAndroid = getIsAndroid();
@@ -24,7 +30,7 @@ export const binanceWallet = ({ projectId, walletConnectParameters, }: BinanceW3
         ...walletDetails,
       }));
     };
-  }
+  };
 
   return {
     id: 'binance',
@@ -77,5 +83,5 @@ export const binanceWallet = ({ projectId, walletConnectParameters, }: BinanceW3
         }
       : undefined,
     createConnector: createBinanceConnector(),
-  }
+  };
 };
