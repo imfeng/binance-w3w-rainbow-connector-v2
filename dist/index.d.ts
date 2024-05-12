@@ -1,6 +1,7 @@
-import type { BinanceW3WParameters } from '@binance/w3w-wagmi-connector-v2';
-export interface BinanceW3WOptions {
+import { RainbowKitWalletConnectParameters } from '@rainbow-me/rainbowkit';
+interface BinanceW3WOptions {
     projectId: string;
-    walletConnectParameters?: BinanceW3WParameters;
+    walletConnectParameters?: RainbowKitWalletConnectParameters;
 }
 export declare const binanceWallet: ({ projectId, walletConnectParameters, }: BinanceW3WOptions) => Wallet;
+export {};
